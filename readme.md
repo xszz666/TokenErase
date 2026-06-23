@@ -30,13 +30,40 @@ conda env create -f environment.yml
 To erase a specific concept (e.g., "Elon Musk"), you can optimize the learnable token using the following command:
 
 ```bash
-coming soon
+
+export CUDA_VISIBLE_DEVICES=0
+export MODEL_NAME="stable-diffusion-v1-5/stable-diffusion-v1-5"
+export CONCEPT="Van_Gogh"
+export INIT="art"
+
+# 确保输出目录存在
+mkdir -p outputs/$CONCEPT/
+
+# 运行训练（参考图像配置从YAML读取）
+accelerate launch train.py \
+    --pretrained_model_name_or_path=$MODEL_NAME \
+    --learnable_property="object" \
+    --placeholder_token="<$CONCEPT-lora>" \
+    --initializer_token="$INIT" \
+    --mixed_precision="no" \
+    --train_batch_size=1 \
+    --gradient_accumulation_steps=1 \
+    --max_train_steps=500 \
+    --text_train_steps=200 \
+    --learning_rate=5.0e-04 \
+    --scale_lr \
+    --lr_scheduler="constant" \
+    --lr_warmup_steps=0 \
+    --save_as_full_pipeline \
+    --output_dir=outputs/$CONCEPT/ \
+    --prompts_file="data/$CONCEPT.yaml"
+
 ```
 
 ### 2. Inference
 Load the optimized token to generate safe images without the erased concept:
 ```bash
-python infer.py 
+python inference.py 
 ```
 
 ## 📊 Results

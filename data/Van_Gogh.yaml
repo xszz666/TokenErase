@@ -1,0 +1,21 @@
+- target: "Van Gogh style" # what word for erasing the positive concept from
+  positive: "Van Gogh style" # concept to erase
+  unconditional: "artistic style, painterly, expressive" # word to take the difference from the positive concept
+  neutral: "artistic style" # starting point for conditioning the target
+  action: "erase" # erase or enhance
+  guidance_scale: 4
+  resolution: 512
+  dynamic_resolution: false
+  batch_size: 1
+  reference_images:
+    image_dir: "to your image directory"
+    mask_dir: None
+    prompts:
+      # 基础风格描述
+      - "Van Gogh style"
+    default_mask_weight: 1.0
+  mrsa_config:
+    start_step: 0
+    end_step: 50
+    layer_idx: [10,11,12,13,14,15]
+    style_fidelity: 1.0
