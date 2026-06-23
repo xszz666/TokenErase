@@ -1,4 +1,4 @@
-# TokenErase: Robust Concept Erasure via Visual-Injected Token Optimization
+# <img src="https://img.icons8.com/color/48/000000/pikachu-pokemon.png" width="35" valign="middle" alt="Pikachu"/> TokenErase: Robust Concept Erasure via Visual-Injected Token Optimization
 
 [![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](https://openaccess.thecvf.com/content/CVPR2026F/papers/Zou_TokenErase_Robust_Concept_Erasure_via_Visual-Injected_Token_Optimization_CVPRF_2026_paper.pdf) 
 [![Code](https://img.shields.io/badge/Code-GitHub-blue.svg)](https://github.com/xszz666/TokenErase)
