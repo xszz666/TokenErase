@@ -30,7 +30,7 @@ conda env create -f environment.yml
 To erase a specific concept (e.g., "Elon Musk"), you can optimize the learnable token using the following command:
 
 ```bash
-come soon
+coming soon
 ```
 
 ### 2. Inference
